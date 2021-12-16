@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/questionsLevel">
+
+    <fragment
+        android:id="@+id/questionsLevel"
+        android:name="com.example.finalproject.fragments.QuestionsLevelFragment"
+        android:label="fragment_questions_level"
+        tools:layout="@layout/fragment_questions_level" >
+        <action
+            android:id="@+id/action_questionsLevelFragment_to_quizFragment"
+            app:destination="@id/quiz" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/quiz"
+        android:name="com.example.finalproject.fragments.QuizFragment"
+        android:label="fragment_quiz"
+        tools:layout="@layout/fragment_quiz" >
+        <action
+            android:id="@+id/action_quizFragment_to_scoreFragment"
+            app:destination="@id/score" />
+        <argument
+            android:name="questionLevel"
+            app:argType="integer" />
+        <argument
+            android:name="numberOfQuestions"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/score"
+        android:name="com.example.finalproject.fragments.ScoreFragment"
+        android:label="fragment_score"
+        tools:layout="@layout/fragment_score" >
+        <argument
+            android:name="score"
+            app:argType="integer" />
+    </fragment>
+</navigation>
